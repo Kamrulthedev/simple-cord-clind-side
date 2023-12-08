@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 
 const User = () => {
 
-    const loder = useLoaderData()
+    const loderUsers = useLoaderData()
+    const [loder, setloser] = useState(loderUsers)
 
     const handlerDelate = _id =>{
        console.log( "delate button",_id)
@@ -18,6 +20,8 @@ const User = () => {
         console.log(data);
         if(data.deletedCount){
             alert('deleted succesfully');
+            const remining = loder.filter(user =>user._id == _id)
+            setloser(remining)
         }
        })
     }
