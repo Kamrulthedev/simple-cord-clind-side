@@ -20,9 +20,9 @@ const router = createBrowserRouter([
     loader: ()=>fetch('http://localhost:5000/users')
   },
   {
-    path:'/updata/:id',
+    path:`/updata/:id`,
     element:<Update></Update>,
-    loader: ({params}) => fetch(`http://localhost:5000/users/${params._id}`)
+    loader: ({params}) => fetch(`http://localhost:5000/users/${params.id}`)
   }
 ]);
 

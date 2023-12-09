@@ -22,8 +22,6 @@ const User = () => {
             alert('deleted succesfully');
             const remaining = loder.filter(user => user._id !== _id);
             setloser(remaining);
-            
-         
         }
        })
     }
@@ -44,13 +42,7 @@ const User = () => {
                         onClick={()=> handlerDelate(user._id)}
                         >x</button >
                         <br />
-                        {user._id}
-                    <Link to={`/updata/${user._id}`}>
-                    <button className="btn btn-ghost" >update</button>
-                    </Link>
-                     <button className="btn btn-ghost" 
-                    onClick={()=> handlerDelate(user._id)}
-                    >x</button > <br />{user.email} 
+                      <br />{user.email} 
                       <Link to={`/updata/${user._id}`}>
                     <button className="btn btn-ghost" >update</button>
                     </Link>
