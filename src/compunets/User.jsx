@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const User = () => {
@@ -20,8 +20,10 @@ const User = () => {
         console.log(data);
         if(data.deletedCount){
             alert('deleted succesfully');
-            const remining = loder.filter(user =>user._id == _id)
-            setloser(remining)
+            const remaining = loder.filter(user => user._id !== _id);
+            setloser(remaining);
+            
+         
         }
        })
     }
@@ -34,9 +36,25 @@ const User = () => {
             }
             <div>
                 {
-                    loder.map(user => <p key={user._id}>{user.name} <button 
+                    loder.map(user => <p key={user._id}>{user.name}
+                        <Link to={`/updata/${user._id}`}>
+                        <button className="btn btn-ghost" >update</button>
+                        </Link>
+                         <button className="btn btn-ghost" 
+                        onClick={()=> handlerDelate(user._id)}
+                        >x</button >
+                        <br />
+                        {user._id}
+                    <Link to={`/updata/${user._id}`}>
+                    <button className="btn btn-ghost" >update</button>
+                    </Link>
+                     <button className="btn btn-ghost" 
                     onClick={()=> handlerDelate(user._id)}
-                    >x</button > <br />{user.email} <button 
+                    >x</button > <br />{user.email} 
+                      <Link to={`/updata/${user._id}`}>
+                    <button className="btn btn-ghost" >update</button>
+                    </Link>
+                    <button className="btn btn-ghost"  
                     onClick={ ()=>handlerDelate (user._id)}
                     >x</button>
                 </p>)

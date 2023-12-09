@@ -7,6 +7,7 @@ import {
 import "./index.css";
 import App from "./App";
 import User from "./compunets/User";
+import Update from "./compunets/Update";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
     path:'/users',
     element:<User></User>,
     loader: ()=>fetch('http://localhost:5000/users')
+  },
+  {
+    path:'/updata/:id',
+    element:<Update></Update>,
+    loader: ({params}) => fetch(`http://localhost:5000/users/${params._id}`)
   }
 ]);
 
